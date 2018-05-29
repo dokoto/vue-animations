@@ -27,6 +27,7 @@ export default {
     border-radius: 5px;
     padding: 2%;
     background-color: $colorWhite0;
+    overflow-y: hidden;
   }
   .title-section {
     padding: 2%;
