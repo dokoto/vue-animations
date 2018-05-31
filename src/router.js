@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Menu from './views/Menu.vue';
 import Slide from './views/Slide.vue';
 import Indexes from './views/Indexes.vue';
+import Indexes2 from './views/Indexes2.vue';
 
 Vue.use(Router);
 export default new Router({
@@ -23,6 +24,11 @@ export default new Router({
       name: 'indexes',
       path: '/menu/indexes',
       components: { container: Indexes }
+    },
+    {
+      name: 'indexes2',
+      path: '/menu/indexes2',
+      components: { container: Indexes2 }
     }
   ]
 });

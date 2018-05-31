@@ -1,8 +1,6 @@
 <template>
   <section class="container">
-      <button @click="handleClick"
-              class="action-button">Show</button>
-    <div class="list top" ref="listTop">
+    <div class="indexes" ref="indexes">
       <div class="row">
         <span>1 Titulo Top</span>
       </div>
@@ -13,10 +11,8 @@
         <span>1.1.1 Sub-Sub-Titulo Top</span>
       </div>
     </div>
-    <div class="list bottom" ref="listBottom">
-      <span>2 Titulo Bottom</span>
-      <span>2.1 Sub-Titulo Bottom</span>
-      <span>2.1.1 Sub-Sub-Titulo Bottom</span>
+    <div class="list" ref="list">
+      <span :id="index" v-for="(item, index) in itemsToShow" :key="index">{{ item }}</span>
     </div>
   </section>
 </template>
@@ -26,10 +22,41 @@ import TweenLite from "gsap/TweenLite";
 import TimelineLite from "gsap/TimelineLite";
 
 export default {
+  data: function() {
+    return {
+      lastPosition: 0,
+      items: Array.from({ length: 21 }, (k, i) => `Titulo ${i} ${new Date()}`)
+    };
+  },
+  computed: {
+    itemsToShow: function() {
+      return this.items;
+    }
+  },
+  mounted() {
+    const $list = this.$refs.list;
+    $list.addEventListener("scroll", this.scrollWatcher);
+  },
+  beforeDestroy: function() {
+    this.$refs.list.removeEventListener("scroll", this.scrollWatcher);
+  },
   methods: {
+    scrollWatcher(ev) {
+      const indexes = this.$refs.indexes;
+      if (!indexes.style.opacity) {
+        indexes.style.opacity = '0.9';
+      } else {
+        const opacity = Number(indexes.style.opacity);
+        if (this.lastPosition < this.$refs.list.scrollTop) {
+          indexes.style.opacity = `${ opacity > 0 ? opacity - 0.1 : opacity }`;
+        } else {
+          indexes.style.opacity = `${ opacity < 1 ? opacity + 0.1 : opacity }`;
+        }
+      }
+      this.lastPosition  = this.$refs.list.scrollTop;
+    },
     handleClick(ev) {
-      const $listTop = this.$refs.listTop;
-      const $listBottom = this.$refs.listBottom;
+      const $indexes = this.$refs.indexes;
       const $items = $listTop.querySelectorAll("span");
       const tl = new TimelineLite();
       if ($listBottom.classList.contains("under")) {
@@ -46,10 +73,15 @@ export default {
             },
             "-=1"
           )
-          .to($items[2], 1, {
-            bottom: "0",
-            transform: "scaleY(1)"
-          }, '-=1')
+          .to(
+            $items[2],
+            1,
+            {
+              bottom: "0",
+              transform: "scaleY(1)"
+            },
+            "-=1"
+          )
           .to(
             $items[2],
             1,
@@ -73,10 +105,15 @@ export default {
             },
             "-=1"
           )
-          .to($items[2], 1, {
-            bottom: "5px",
-            transform: "scaleY(0.9)"
-          }, '-=1')
+          .to(
+            $items[2],
+            1,
+            {
+              bottom: "5px",
+              transform: "scaleY(0.9)"
+            },
+            "-=1"
+          )
           .to(
             $items[2],
             1,
@@ -101,7 +138,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   margin: 5%;
-  .list {
+  .indexes {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -116,6 +153,12 @@ export default {
         bottom: 0px;
       }
     }
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 300px;
   }
 }
 </style>
