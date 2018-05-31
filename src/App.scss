@@ -1,3 +1,26 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+$bg: '../../../static/img/app-bg.jpeg';
+$form-font-size: 1.2em;
+
+$colorGrey1: #0a0909;
+$colorGrey2: #c5c4c4;
+$colorGrey3: #e4e3e3;
+$colorGrey4: #ececec;
+$colorWhite0: white;
+$colorWhite1: #f7f7f0;
+$colorWhite2: #f9f9f9;
+$colorDarkGrey1: #848181;
+$colorDarkGrey2: #828080;
+$colorDarkGrey3: #7b656d;
+$colorPastelOrange: rgb(253, 202, 162);
+$colorPastelPink: rgb(251, 182, 202);
+$colorPastelBlue: rgb(199, 236, 255);
+$colorPastelYellow: rgb(255, 237, 120);
+$colorPastelGreen0: #77dd77;
+$colorBlue1: #6cc0e5;
+$colorGreen0: #4edc0a;
+
 .box {
   margin-right: 3%;
   margin-left: 3%;
@@ -70,25 +93,15 @@
   }
 }
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
-
-$bg: '../../../static/img/app-bg.jpeg';
-$form-font-size: 1.2em;
-
-$colorGrey1: #0a0909;
-$colorGrey2: #c5c4c4;
-$colorGrey3: #e4e3e3;
-$colorGrey4: #ececec;
-$colorWhite0: white;
-$colorWhite1: #f7f7f0;
-$colorWhite2: #f9f9f9;
-$colorDarkGrey1: #848181;
-$colorDarkGrey2: #828080;
-$colorDarkGrey3: #7b656d;
-$colorPastelOrange: rgb(253, 202, 162);
-$colorPastelPink: rgb(251, 182, 202);
-$colorPastelBlue: rgb(199, 236, 255);
-$colorPastelYellow: rgb(255, 237, 120);
-$colorPastelGreen0: #77dd77;
-$colorBlue1: #6cc0e5;
-$colorGreen0: #4edc0a;
+.action-button {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  font-size: 1.3em;
+  padding: 2%;
+  border-radius: 5px;
+  background-color: $colorBlue1;
+}
