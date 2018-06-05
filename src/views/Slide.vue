@@ -41,6 +41,10 @@ export default {
   methods: {
     handleClick(ev) {
       const $card = this.$refs.card.$el;
+      //this.$refs.cardX.$el.style.height = `${this.$refs.cardX.$el.offsetHeight}px`;
+      window.getComputedStyle(this.$refs.cardX.$el, null).setPropertyValue("height", `${this.$refs.cardX.$el.offsetHeight}px`);
+      this.$refs.cardX.$el.classList.add('close');
+      /*
       if ($card.classList.contains("open")) {
         TweenLite
           .to($card , 0.6, { height: 0, opacity: 0 });
@@ -50,6 +54,7 @@ export default {
         TweenLite.from($card, 0.6, { height: 0, opacity: 0 });
         $card.classList.add("open");
       }
+      */
     },
   }
 };
@@ -76,6 +81,16 @@ textarea {
   width: 100%;
   height: 100%;
   .grp {
+    .open {
+      height: auto;
+      transition-property: height;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0, 1);
+	    transition-delay: 0s;
+    }
+    .close {
+      height: 0;
+    }
     .margin-2x {
       margin-top: 0.4em;
     }

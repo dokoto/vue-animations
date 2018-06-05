@@ -4,6 +4,7 @@ import Menu from './views/Menu.vue';
 import Slide from './views/Slide.vue';
 import Indexes from './views/Indexes.vue';
 import Indexes2 from './views/Indexes2.vue';
+import Misc1 from './views/Misc1.vue';
 
 Vue.use(Router);
 export default new Router({
@@ -29,6 +30,11 @@ export default new Router({
       name: 'indexes2',
       path: '/menu/indexes2',
       components: { container: Indexes2 }
+    },
+    {
+      name: 'misc1',
+      path: '/menu/misc1',
+      components: { container: Misc1 }
     }
   ]
 });

@@ -16,6 +16,11 @@
           Indexes 2 animations
         </router-link>
       </li>
+      <li>
+        <router-link to="/menu/misc1">
+          Misc animations 1
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
