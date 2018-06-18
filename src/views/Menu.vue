@@ -21,6 +21,11 @@
           Misc animations 1
         </router-link>
       </li>
+      <li>
+        <router-link to="/menu/scroll">
+          Nested scroll
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>

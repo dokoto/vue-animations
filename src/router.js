@@ -5,6 +5,7 @@ import Slide from './views/Slide.vue';
 import Indexes from './views/Indexes.vue';
 import Indexes2 from './views/Indexes2.vue';
 import Misc1 from './views/Misc1.vue';
+import Scroll from './views/Scroll.vue';
 
 Vue.use(Router);
 export default new Router({
@@ -35,6 +36,11 @@ export default new Router({
       name: 'misc1',
       path: '/menu/misc1',
       components: { container: Misc1 }
+    },
+    {
+      name: 'scroll',
+      path: '/menu/scroll',
+      components: { container: Scroll }
     }
   ]
 });
