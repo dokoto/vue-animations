@@ -17,13 +17,18 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/menu/misc1">
-          Misc animations 1
+        <router-link to="/menu/FlipAnimation">
+          Flip Animation
         </router-link>
       </li>
       <li>
         <router-link to="/menu/scroll">
           Nested scroll
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/menu/test1">
+          Test Space 1
         </router-link>
       </li>
     </ul>

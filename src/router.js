@@ -4,7 +4,8 @@ import Menu from './views/Menu.vue';
 import Slide from './views/Slide.vue';
 import Indexes from './views/Indexes.vue';
 import Indexes2 from './views/Indexes2.vue';
-import Misc1 from './views/Misc1.vue';
+import FlipAnimation from './views/FlipAnimation.vue';
+import Test1 from './views/Test1.vue';
 import Scroll from './views/Scroll.vue';
 
 Vue.use(Router);
@@ -33,14 +34,19 @@ export default new Router({
       components: { container: Indexes2 }
     },
     {
-      name: 'misc1',
-      path: '/menu/misc1',
-      components: { container: Misc1 }
+      name: 'FlipAnimation',
+      path: '/menu/FlipAnimation',
+      components: { container: FlipAnimation }
     },
     {
       name: 'scroll',
       path: '/menu/scroll',
       components: { container: Scroll }
+    },
+    {
+      name: 'test1',
+      path: '/menu/test1',
+      components: { container: Test1 }
     }
   ]
 });
